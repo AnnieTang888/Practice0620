@@ -38,5 +38,16 @@ public class TaskController {
         }
         return task;
     }
+    @DeleteMapping("/{id}")
+    public String deleteTaskByID(@PathVariable int id){
+    	Task removed = taskMap.remove(id);
+    	if(removed != null) {
+    		return "Task with ID " + id + " was deleted :(";
+    	}else {
+    		return "Task with ID " + id + " not found!";
+    	}
+    }
 }
+
+	
 
